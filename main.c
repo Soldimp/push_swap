@@ -6,7 +6,7 @@
 /*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:42:39 by nuno              #+#    #+#             */
-/*   Updated: 2023/01/31 15:02:30 by nugarcia         ###   ########.fr       */
+/*   Updated: 2023/01/31 17:09:44 by nugarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,24 +58,25 @@ void	push_swap(int ac, char **av)
 	stack.b = fill_stack_values(&stack.b, 6);
 	stack.b = fill_stack_values(&stack.b, 2);
 
-	ft_printf("Stack A\n");
-	print_list(stack.a);
+	/* ft_printf("Stack A\n");
+	print_list(stack.a); */
 	/* while (i < ac)
 	{
 		stack.b = fill_stack_values(&stack.b, ft_atoi2(av[i]));
 		i++;
 	} */
-	how_to_sort(ac, &stack);
 	//free(stack.a);
 	//free(stack.b);
+	ft_printf("Stack A before any move\n");
+	print_list(stack.a);
+	ft_printf("Stack B 15 6 2\n");
+	print_list(stack.b);
+	push_a(&stack);
 	ft_printf("Stack A\n");
 	print_list(stack.a);
 	ft_printf("Stack B 15 6 2\n");
 	print_list(stack.b);
-	ft_printf("Stack A\n");
-	print_list(stack.a);
-	ft_printf("Stack B 15 6 2\n");
-	print_list(stack.b);
+	//how_to_sort(ac, &stack);
 }
 
 int	main(int ac, char **av)

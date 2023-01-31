@@ -6,7 +6,7 @@
 /*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:24:06 by nugarcia          #+#    #+#             */
-/*   Updated: 2023/01/31 14:59:05 by nugarcia         ###   ########.fr       */
+/*   Updated: 2023/01/31 15:12:03 by nugarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void		swap_b(t_stack *stack);
 void		swap_a_b(t_stack *stack);
 
 ////////		Push			////////	
-
+void		push_a(t_stack *stack);
+void		push_b(t_stack *stack);
 #endif
 
