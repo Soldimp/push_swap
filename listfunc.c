@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   listfunc.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 17:08:52 by nuno              #+#    #+#             */
-/*   Updated: 2023/01/28 16:00:26 by nuno             ###   ########.fr       */
+/*   Updated: 2023/01/31 12:51:19 by nugarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_list	*fill_stack_values(t_list **stack, int n)
 	t_list	*head;
 	t_list	*tmp;
 
-	head= malloc(sizeof(t_list));
+	head = malloc(sizeof(t_list));
 	if (!head)
 		return (0);
 	head->content = n;

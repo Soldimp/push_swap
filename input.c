@@ -3,104 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:45:09 by nuno              #+#    #+#             */
-/*   Updated: 2023/01/28 15:51:54 by nuno             ###   ########.fr       */
+/*   Updated: 2023/01/31 14:20:16 by nugarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/* static	int	is_sign(char c)
-{
-	return (c == '+' || c == '-');
-}
-
-static int	onlynumbers(char *av)
-{
-	int	i;
-
-	i = 0;
-	if (is_sign(av[i]) && av[i + 1] != '\0')
-		i++;
-	while (av[i] && ft_isdigit(av[i]))
-		i++;
-	if (av[i] != '\0' && !ft_isdigit(av[i]))
-		return (FALSE);
-	return (TRUE);
-}
-
-/*  If one of the strings starts with a '+' sign, it is ignored and the rest
- of the number string is checked.
- This is so that +123 == 123 but -123 != 123.
-  Return: 0 if the strings match, another value if they do not. */
-  
-/* static int	nbstr_cmp(const char *s1, const char *s2)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = i;
-	if (s1[i] == '+')
-	{
-		if (s2[j] != '+')
-			i++;
-	}
-	else
-	{
-		if (s2[j] == '+')
-			j++;
-	}
-	while (s1[i] != '\0' && s2[j] != '\0' && s1[i] == s2[j])
-	{
-		i++;
-		j++;
-	}
-	return ((unsigned char)s1[i] - (unsigned char)s2[j]);
-} */
-
-/*static int	dup_check(char **av)
-{
-	int	i;
-	int	j;
-
-	i = 1;
-	while (av[i])
-	{
-		j = 1;
-		while (av[j])
-		{
-			if (j != i && nbstr_cmp(av[i], av[j]) == 0)
-				return (TRUE);
-			j++;
-		}
-		i++;
-	}
-	return (FALSE);
-} */
-
-/* int	is_correct_input(char **av)
-{
-	int	i;
-	int	nb_zeros;
-
-	nb_zeros = 0;
-	i = 1;
-	while (av[i])
-	{
-		if (!onlynumbers(av[i]))
-			return (FALSE);
-		/* nb_zeros += arg_is_zero(av[i]);
-		i++; 
-	}
-	/* if (nb_zeros > 1)
-		return (0); 
-	if (dup_check(av))
-		return (FALSE);
-	return (TRUE);
-} */
 
 int	onlynumbers(int ac, char **av)
 {
@@ -136,14 +46,15 @@ int	dupnub(int ac, char **av)
 		{
 			if (ft_atoi2(av[i]) == ft_atoi2(av[j]))
 			{
-				return FALSE;
+				return (FALSE);
 			}
 			j++;
 		}
 		i++;
 	}
-	return TRUE;
+	return (TRUE);
 }
+
 int	checker_max_min(int ac, char **av)
 {
 	int	i;
@@ -160,6 +71,7 @@ int	checker_max_min(int ac, char **av)
 	}
 	return (TRUE);
 }
+
 int	checker_sinal(int argc, char **argv)
 {
 	int	i;
@@ -182,15 +94,16 @@ int	checker_sinal(int argc, char **argv)
 	}
 	return (TRUE);
 }
+
 int	checkvalid_iput(int ac, char **av)
 {
-	if (onlynumbers(ac,av) != TRUE)
-		return FALSE;
+	if (onlynumbers(ac, av) != TRUE)
+		return (FALSE);
 	else if (dupnub(ac, av) != TRUE)
-		return FALSE;
+		return (FALSE);
 	else if (checker_max_min(ac, av) != TRUE)
-		return FALSE;
+		return (FALSE);
 	else if (checker_sinal(ac, av) != TRUE)
-		return FALSE;
-	return TRUE;
+		return (FALSE);
+	return (TRUE);
 }

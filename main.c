@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:42:39 by nuno              #+#    #+#             */
-/*   Updated: 2023/01/28 15:59:28 by nuno             ###   ########.fr       */
+/*   Updated: 2023/01/31 15:02:30 by nugarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	how_to_sort(int ac, t_stack *stack)
 
 void	push_swap(int ac, char **av)
 {
-	t_stack stack;
+	t_stack	stack;
 	int		i;
 
 	i = 1;
@@ -50,33 +50,40 @@ void	push_swap(int ac, char **av)
 	stack.b = NULL;
 
 	while (i < ac)
-		{
-			stack.a = fill_stack_values(&stack.a, ft_atoi2(av[i]));
-			i++;
-		}
+	{
+		stack.a = fill_stack_values(&stack.a, ft_atoi2(av[i]));
+		i++;
+	}
+	stack.b = fill_stack_values(&stack.b, 15);
+	stack.b = fill_stack_values(&stack.b, 6);
+	stack.b = fill_stack_values(&stack.b, 2);
+
 	ft_printf("Stack A\n");
 	print_list(stack.a);
-	while (i < ac)
-		{
-			stack.b = fill_stack_values(&stack.b, ft_atoi2(av[i]));
-			i++;
-		}
-	print_list(stack.b);
+	/* while (i < ac)
+	{
+		stack.b = fill_stack_values(&stack.b, ft_atoi2(av[i]));
+		i++;
+	} */
 	how_to_sort(ac, &stack);
-	//free(stack.a);.
+	//free(stack.a);
 	//free(stack.b);
-
+	ft_printf("Stack A\n");
+	print_list(stack.a);
+	ft_printf("Stack B 15 6 2\n");
+	print_list(stack.b);
+	ft_printf("Stack A\n");
+	print_list(stack.a);
+	ft_printf("Stack B 15 6 2\n");
+	print_list(stack.b);
 }
 
 int	main(int ac, char **av)
 {
-	/* t_stack	*stack_a;
-	t_stack	*stack_b;
- */
 	if (ac < 2)
 		return (0);
 	if (checkvalid_iput(ac, av) == FALSE)
 		exit(write(2, "Error\n", 6));
 	push_swap(ac, av);
-	return 0;
+	return (0);
 }
