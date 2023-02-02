@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swaps.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
+/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 13:53:06 by nugarcia          #+#    #+#             */
-/*   Updated: 2023/01/31 14:42:43 by nugarcia         ###   ########.fr       */
+/*   Updated: 2023/02/02 17:49:06 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,38 @@
 
 void	swap_a(t_stack *stack)
 {
-	int	aux;
+	int temp;
 
-	if (stack->a)
-	{
-		aux = stack->a->content;
-		stack->a->content = stack->a->next->content;
-		stack->a->next->content = aux;
-		ft_printf("sa\n");
-	}
+	if (stack == NULL || stack->next == NULL)
+		return ;
+
+	temp = stack->content;
+	stack->content = stack->next->content;
+	stack->next->content = temp;
+	ft_printf("sa\n");
+	
 }	
 
 void	swap_b(t_stack *stack)
 {
-	int	aux;
+	int temp;
 
-	if (stack->b)
-	{
-		aux = stack->b->content;
-		stack->b->content = stack->b->next->content;
-		stack->b->next->content = aux;
-		ft_printf("sb\n");
-	}
+	if (stack == NULL || stack->next == NULL)
+		return ;
+
+	temp = stack->content;
+	stack->content = stack->next->content;
+	stack->next->content = temp;
+	ft_printf("sb\n");
+	
 }
 
-void	swap_a_b(t_stack *stack)
+void	swap_a_b(t_stack *stack_a, t_stack *stack_b)
 {
-	if (stack->a && stack->b)
+	if (stack_a && stack_b)
 	{
-		swap_a(stack);
-		swap_b(stack);
+		swap_a(stack_a);
+		swap_b(stack_b);
 		ft_printf("ss\n");
 	}
 }

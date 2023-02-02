@@ -3,80 +3,96 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
+/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:42:39 by nuno              #+#    #+#             */
-/*   Updated: 2023/01/31 17:09:44 by nugarcia         ###   ########.fr       */
+/*   Updated: 2023/02/02 18:00:57 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* t_stack	*fill_stack_values(int ac, char **av)
-{
-	t_stack		*stack_a;
-	long int	nb;
-	int			i;
-
-	stack_a = NULL;
-	nb = 0;
-	i = 1;
-	while (i < ac)
-	{
-		nb = ft_atoi(av[i]);
-		if (nb > INT_MAX || nb < INT_MIN)
-				exit(write(2, "Error\n", 6));
-		if (i == 1)
-			stack_a =  ft_lstnew((int)nb);
-		else
-			ft_lstadd_back(&stack_a, ft_lstnew((int)nb));
-		i++;
-	}
-	return (stack_a);
-} */
 static void	how_to_sort(int ac, t_stack *stack)
 {
 	if (sorted(stack) == 1)
 		return ;
 }
+/* loop is used to allocate memory for the linked list elements and 
+fill them with values from the input array av. The loop runs ac - 1 times, 
+as i starts at 1 and ends when i becomes equal to ac.
+Memory is allocated for a new node in the linked list using malloc and stored in 
+a->next.
 
+The pointer a is then moved to the newly allocated node using a = a->next.
+
+ The value of the new node is set to ft_atoi2(av[i]), which is the integer value 
+ of the i-th element of av.
+
+ The next node in the linked list is set to NULL using a->next = NULL.
+ The value of i is incremented by 1.
+
+This loop is used to add all the values from av to the linked list a. 
+At the end of the loop, 
+the linked list will contain all the values from av. */
+void *create_malloc(size_t size) 
+{
+  void *ptr = malloc(size);
+  if (!ptr) {
+    // handle malloc failure
+    exit(1);
+  }
+  return ptr;
+}
 void	push_swap(int ac, char **av)
 {
-	t_stack	stack;
+	t_stack	*a;
+	t_stack	*b;
+	t_stack	*head_a;
+	t_stack	*head_b;
 	int		i;
 
+	a = create_malloc(sizeof(t_stack));
+	a->next = NULL;
+	head_a = a;
+	b = create_malloc(sizeof(t_stack));
+	b->next = NULL;
+	head_b = b;
 	i = 1;
-	stack.a = NULL;
-	stack.b = NULL;
-
 	while (i < ac)
 	{
-		stack.a = fill_stack_values(&stack.a, ft_atoi2(av[i]));
+		a->next = create_malloc(sizeof(t_stack));
+		a = a->next;
+		a->content = ft_atoi2(av[i]);
+		a->next = NULL;
 		i++;
 	}
-	stack.b = fill_stack_values(&stack.b, 15);
-	stack.b = fill_stack_values(&stack.b, 6);
-	stack.b = fill_stack_values(&stack.b, 2);
-
-	/* ft_printf("Stack A\n");
-	print_list(stack.a); */
-	/* while (i < ac)
+	i = 0;
+	while (i < 3)
 	{
-		stack.b = fill_stack_values(&stack.b, ft_atoi2(av[i]));
+		b->next = create_malloc(sizeof (t_stack));
+		b = b->next;
+		if (i == 0)
+			b->content = 15;
+		if (i == 1)
+			b->content = 20;
+		if (i == 2)
+			b->content = 25;
+		b->next = NULL;
 		i++;
-	} */
+	}
+	ft_printf("Stack A before any move\n");
+	print_list(head_a);
+	//swap_a(head_a->next);
+	swap_a_b(head_a->next, head_b->next);
+	ft_printf("Stack A After \n");
+	print_list(head_a);
+	ft_printf("Stack B before any move\n");
+	print_list(head_b);
+	ft_printf("Stack B After\n");
+	print_list(head_b);
 	//free(stack.a);
 	//free(stack.b);
-	ft_printf("Stack A before any move\n");
-	print_list(stack.a);
-	ft_printf("Stack B 15 6 2\n");
-	print_list(stack.b);
-	push_a(&stack);
-	ft_printf("Stack A\n");
-	print_list(stack.a);
-	ft_printf("Stack B 15 6 2\n");
-	print_list(stack.b);
-	//how_to_sort(ac, &stack);
+	//how_to_sort(ac, head_a);
 }
 
 int	main(int ac, char **av)
