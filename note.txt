@@ -1,0 +1,10 @@
+The difference between stack and (*stack) is that stack is a 
+pointer to a t_stack structure, while (*stack) is the value 
+stored at that memory location, which is a t_stack structure. 
+
+In other words, stack is a reference to the memory location that holds the data, while (*stack) 
+is the actual data stored at that memory location.
+
+the function swap receives a copy of the pointer stack,
+so any changes made to stack inside the function will not persist outside of the function. On the other hand, when you call swap(*stack), the function receives the actual t_stack structure, so any changes made to the structure 
+will persist outside of the function.

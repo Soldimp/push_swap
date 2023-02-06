@@ -6,18 +6,18 @@
 /*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 18:37:45 by nuno              #+#    #+#             */
-/*   Updated: 2023/02/02 16:39:17 by nuno             ###   ########.fr       */
+/*   Updated: 2023/02/06 17:33:00 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "42_print/ft_printf.h"
 
-int	sorted(t_stack *stack)
+int	sorted(t_stack **stack)
 {
 	t_stack	*tmp;
 
-	tmp = stack;
+	tmp = *stack;
 
 	while (tmp->next)
 	{

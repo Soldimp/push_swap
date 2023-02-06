@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
+/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 17:11:06 by nuno              #+#    #+#             */
-/*   Updated: 2023/01/31 13:50:34 by nugarcia         ###   ########.fr       */
+/*   Updated: 2023/02/05 19:40:33 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 long long	ft_atoi2(const char *nptr)
 {
@@ -30,6 +32,8 @@ long long	ft_atoi2(const char *nptr)
 	}
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
+		 if (res > LLONG_MAX / 10 || (res == LLONG_MAX / 10 && nptr[i] - '0' > LLONG_MAX % 10))
+            return (0);
 		res = (res * 10) + (nptr[i] - '0');
 		i++;
 	}
