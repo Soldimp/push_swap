@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:24:06 by nugarcia          #+#    #+#             */
-/*   Updated: 2023/02/06 17:36:46 by nuno             ###   ########.fr       */
+/*   Updated: 2023/02/07 15:00:19 by nugarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,12 @@
 typedef struct s_list
 {
 	int				content;
+	int				index;
 	struct s_list	*next;
 }	t_stack;
 
 ////////		Memory Allocate	////////
-void *create_malloc(size_t size);
+//void		*create_malloc(size_t size);
 
 ////////		List creation and print		////////	
 t_stack		*fill_stack_values(int ac, char **av);
@@ -42,6 +43,7 @@ t_stack		*stack_new(int nb);
 void		ft_lstadd_back(t_stack **stack, t_stack *new);
 t_stack		*get_node_before_last(t_stack *head);
 int			ft_lstsize(t_stack **stack);
+void		index_on_stack(t_stack **stack_a, int size);
 
 ////////		Inputs		////////
 int			checkvalid_iput(int ac, char **av);
@@ -53,12 +55,13 @@ int			dupnub(int ac, char **av);
 ////////		Atoi	////////	
 long long	ft_atoi2(const char *str);
 
-
 ////////		Push_swap stack filling	////////	
 void		push_swap(t_stack **stack_a, t_stack **stack_b);
 
 ////////		Sorting				////////	
 int			sorted(t_stack **stack);
+void		sort3(t_stack **stack_a);
+void		sort5(t_stack **stack_a);
 
 ////////		Swaps			////////	
 void		swap_a(t_stack **stack_a);
@@ -78,4 +81,3 @@ void		rever_rotate_a(t_stack **stack_a);
 void		rever_rotate_b(t_stack **stack_b);
 void		rever_rotate_a_b(t_stack **stack_a, t_stack **stack_b);
 #endif
-

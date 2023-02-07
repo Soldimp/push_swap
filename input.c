@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:45:09 by nuno              #+#    #+#             */
-/*   Updated: 2023/02/02 16:05:05 by nuno             ###   ########.fr       */
+/*   Updated: 2023/02/07 13:27:13 by nugarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,7 @@ int	dupnub(int ac, char **av)
 		while (j < ac)
 		{
 			if (ft_atoi2(av[i]) == ft_atoi2(av[j]))
-			{
 				return (FALSE);
-			}
 			j++;
 		}
 		i++;
@@ -63,16 +61,13 @@ int	checker_max_min(int ac, char **av)
 	while (i < ac)
 	{
 		if (ft_atoi2(av[i]) < INT_MIN || ft_atoi2(av[i]) > INT_MAX)
-		{
-			//exit(write(2, "Error\n", 6));
 			return (FALSE);
-		}
 		i++;
 	}
 	return (TRUE);
 }
 
-int	checker_sinal(int argc, char **argv)
+int	checker_sinal(int ac, char **av)
 {
 	int	i;
 	int	j;
@@ -80,13 +75,13 @@ int	checker_sinal(int argc, char **argv)
 
 	i = 1;
 	j = 1;
-	while (i < argc)
+	while (i < ac)
 	{
 		h = 0;
-		if (argv[j][h] == '-')
+		if (av[j][h] == '-')
 		{
 			h += 1;
-			if (!(argv[j][h] >= '0' && argv[j][h] <= '9'))
+			if (!(av[j][h] >= '0' && av[j][h] <= '9'))
 				return (FALSE);
 		}
 		j++;

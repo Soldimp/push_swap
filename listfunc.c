@@ -3,29 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   listfunc.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 17:08:52 by nuno              #+#    #+#             */
-/*   Updated: 2023/02/06 17:37:30 by nuno             ###   ########.fr       */
+/*   Updated: 2023/02/07 14:00:18 by nugarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "42_print/ft_printf.h"
-
-void	print_list(t_stack **stack)
-{
-	if (!*stack)
-		return ;
-	t_stack *current;
-	current = *stack;
-	while (current != NULL)
-	{
-		if (current->content) //check for NULL
-			ft_printf("%d\n", current->content);
-		current = current->next;
-	}
-}
 
 t_stack	*fill_stack_values(int ac, char **av)
 {
@@ -40,7 +26,7 @@ t_stack	*fill_stack_values(int ac, char **av)
 	{
 		nb = ft_atoi2(av[i]);
 		if (nb > INT_MAX || nb < INT_MIN)
-			exit(write(2,"Error\n", 6));
+			exit(ft_printf("Error\n"));
 		if (i == 1)
 			stack_a = stack_new((int)nb);
 		else
@@ -60,6 +46,7 @@ t_stack	*stack_new(int nb)
 	if (!new)
 		return (NULL);
 	new->content = nb;
+	new->index = 0;
 	new->next = NULL;
 	return (new);
 }
@@ -90,33 +77,21 @@ void	ft_lstadd_back(t_stack **stack, t_stack *new)
 }
 
 /* Returns the node that is just before the last node of the linked list. */
-t_stack	*get_node_before_last(t_stack *head) 
+
+t_stack	*get_node_before_last(t_stack *head)
 {
-    t_stack *current;
-    t_stack *next;
+	t_stack	*current;
+	t_stack	*next;
 
 	current = head;
 	next = head->next;
-    while (next->next != NULL) 
+	while (next->next != NULL)
 	{
-        current = next;
-        next = next->next;
-    }
-    return current;
-}
-
-int	ft_lstsize(t_stack **stack)
-{
-	int			i;
-	t_stack		*lstindex;
-
-	i = 0;
-	lstindex = *stack;
-	while (lstindex)
-	{
-		lstindex = lstindex->next;
-		i++;
+		current = next;
+		next = next->next;
 	}
-	ft_printf("size: %d\n", i);
-	return (i);
+	return (current);
+/* 	while (stack && stack->next && stack->next->next != NULL)
+		stack = stack->next;
+	return (stack); */
 }

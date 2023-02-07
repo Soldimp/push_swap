@@ -6,12 +6,13 @@
 /*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 15:24:21 by nugarcia          #+#    #+#             */
-/*   Updated: 2022/11/30 10:28:58 by nugarcia         ###   ########.fr       */
+/*   Updated: 2023/02/07 11:38:16 by nugarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
+
 void	ft_putnbr(int nbr, int *len)
 {
 	if (nbr == -2147483648)
@@ -45,8 +46,7 @@ void	ft_unsigputnbr(unsigned int nb, int *len)
 void	ft_hexa(unsigned int nbr, char cs, int *len)
 {
 	char	*base;
-	printf("nbr: %d\n", nbr);
-	printf("%c\n", cs);
+
 	if (cs == 'x')
 		base = "0123456789abcdef";
 	else

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   rotates.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 16:12:32 by nuno              #+#    #+#             */
-/*   Updated: 2023/02/06 16:51:48 by nuno             ###   ########.fr       */
+/*   Updated: 2023/02/07 13:34:54 by nugarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-   /*  head is where the first node off the stack his saved
+/*  head is where the first node off the stack his saved
 	so i can then update the stack to the secode node doing that removing the 
 	head.
 
@@ -22,6 +22,7 @@
 	it is no longer part of the stack.
     The next pointer of the last node is set to head, putting the 
 	head to last */
+
 static void	rotate(t_stack **stack)
 {
 	t_stack	*head;

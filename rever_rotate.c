@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rever_rotate.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 16:18:08 by nuno              #+#    #+#             */
-/*   Updated: 2023/02/06 17:30:20 by nuno             ###   ########.fr       */
+/*   Updated: 2023/02/07 13:52:34 by nugarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ update the next pointer of
 the node before the last node to be NULL, 
 effectively removing it from the linked list.
 */
+
 static	void	reverse_rotate(t_stack	**stack)
 {
 	t_stack	*head;
@@ -55,8 +56,8 @@ void	rever_rotate_a_b(t_stack **stack_a, t_stack **stack_b)
 {
 	if (*stack_a && *stack_b)
 	{
-	rever_rotate_a(stack_a);
-	rever_rotate_b(stack_b);
-	ft_printf("rrr\n");
+		rever_rotate_a(stack_a);
+		rever_rotate_b(stack_b);
+		ft_printf("rrr\n");
 	}
 }

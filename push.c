@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 14:59:33 by nugarcia          #+#    #+#             */
-/*   Updated: 2023/02/06 16:11:09 by nuno             ###   ########.fr       */
+/*   Updated: 2023/02/07 15:06:08 by nugarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
 /* First part save the first node
 then delete it from the stack b by making the list start on the
 second node  */
+
 static	void	push(t_stack **src, t_stack **dest)
 {
 	t_stack	*tmp;
