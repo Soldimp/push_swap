@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
+/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:24:06 by nugarcia          #+#    #+#             */
-/*   Updated: 2023/02/07 15:00:19 by nugarcia         ###   ########.fr       */
+/*   Updated: 2023/02/08 19:54:32 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@
 typedef struct s_list
 {
 	int				content;
-	int				index;
 	struct s_list	*next;
 }	t_stack;
 
@@ -43,7 +42,7 @@ t_stack		*stack_new(int nb);
 void		ft_lstadd_back(t_stack **stack, t_stack *new);
 t_stack		*get_node_before_last(t_stack *head);
 int			ft_lstsize(t_stack **stack);
-void		index_on_stack(t_stack **stack_a, int size);
+//void		index_on_stack(t_stack **stack_a, int size);
 
 ////////		Inputs		////////
 int			checkvalid_iput(int ac, char **av);
@@ -61,7 +60,10 @@ void		push_swap(t_stack **stack_a, t_stack **stack_b);
 ////////		Sorting				////////	
 int			sorted(t_stack **stack);
 void		sort3(t_stack **stack_a);
-void		sort5(t_stack **stack_a);
+void		sort5(t_stack **stack_a, t_stack **stack_b);
+////////		Sorting	Utills			////////	
+int			small_value(t_stack *stack_a);
+int			biggest_value(t_stack *stack);
 
 ////////		Swaps			////////	
 void		swap_a(t_stack **stack_a);

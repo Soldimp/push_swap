@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   listfunc.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
+/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 17:08:52 by nuno              #+#    #+#             */
-/*   Updated: 2023/02/07 14:00:18 by nugarcia         ###   ########.fr       */
+/*   Updated: 2023/02/08 18:34:03 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ t_stack	*stack_new(int nb)
 	if (!new)
 		return (NULL);
 	new->content = nb;
-	new->index = 0;
+	//new->index = 0;
 	new->next = NULL;
 	return (new);
 }

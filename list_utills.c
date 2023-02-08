@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_utills.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
+/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 11:21:07 by nugarcia          #+#    #+#             */
-/*   Updated: 2023/02/07 13:48:29 by nugarcia         ###   ########.fr       */
+/*   Updated: 2023/02/08 18:33:39 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_lstsize(t_stack **stack)
 	return (i);
 }
 
-void	index_on_stack(t_stack **stack_a, int size)
+/* void	index_on_stack(t_stack **stack_a, int size)
 {
 	t_stack	*head;
 	t_stack	*biggest;
@@ -71,3 +71,4 @@ void	index_on_stack(t_stack **stack_a, int size)
 			biggest->index = size;
 	}
 }
+ */
