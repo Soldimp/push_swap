@@ -6,7 +6,7 @@
 /*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:24:06 by nugarcia          #+#    #+#             */
-/*   Updated: 2023/02/08 19:54:32 by nuno             ###   ########.fr       */
+/*   Updated: 2023/02/09 17:53:08 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,12 @@ void		push_swap(t_stack **stack_a, t_stack **stack_b);
 ////////		Sorting				////////	
 int			sorted(t_stack **stack);
 void		sort3(t_stack **stack_a);
-void		sort5(t_stack **stack_a, t_stack **stack_b);
+void		sort4_5(t_stack **stack_a, t_stack **stack_b);
+
 ////////		Sorting	Utills			////////	
-int			small_value(t_stack *stack_a);
+int 		smallestValues(t_stack *stack) ;
 int			biggest_value(t_stack *stack);
+void		check_pos(t_stack **stack_a, t_stack **stack_b, int c, int n);
 
 ////////		Swaps			////////	
 void		swap_a(t_stack **stack_a);

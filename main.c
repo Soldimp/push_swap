@@ -6,7 +6,7 @@
 /*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:42:39 by nuno              #+#    #+#             */
-/*   Updated: 2023/02/08 18:58:57 by nuno             ###   ########.fr       */
+/*   Updated: 2023/02/09 17:52:51 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ static void	how_to_sort(t_stack **stack_a, t_stack **stack_b, int size)
 		sort3(stack_a);
 		sorted(stack_a);
 	}
-	else if (size == 5 && !sorted(stack_a))
+	else if (size == 4 || size == 5 && !sorted(stack_a))
 	{
-		sort5(stack_a, stack_b);
+		sort4_5(stack_a, stack_b);
 		sorted(stack_a);
 	}
 }
@@ -58,7 +58,7 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b)
 	ft_printf("||||||||Moves|||||||\n");
 	how_to_sort (stack_a, stack_b, size);
 	ft_printf("||||||||||||||||||||\n");
-	print_list(stack_a);
+	//print_list(stack_a);
 	free_list(stack_a);
 	//free_list(stack_b);
 }

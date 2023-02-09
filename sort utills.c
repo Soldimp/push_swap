@@ -6,7 +6,7 @@
 /*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 18:59:53 by nuno              #+#    #+#             */
-/*   Updated: 2023/02/08 20:01:12 by nuno             ###   ########.fr       */
+/*   Updated: 2023/02/09 17:40:24 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,76 @@ int	biggest_value(t_stack *stack)
 	}
 	return (value);
 }
+/* Use the temp_stack to traverse through the linked list 
+stack and compare each node's content with the min node's content. 
+If temp_stack's content is smaller than min's content, update min to point to 
+temp_stack.
+After finding the node with the smallest value, initialize temp_stack to 
+stack again and traverse through the linked list using temp_stack until 
+temp_stack reaches min.
+For every node visited in this step, increment the c counter.
+Return the value of c, which is the position of the smallest value in the 
+linked list. */
 
-int	small_value(t_stack *stack_a)
-{
-	int	value;
+int smallestValues(t_stack *stack) 
+{ 
+   	t_stack	*temp_stack;
+	t_stack	*min;
+	int		i;
 
-	value =  stack_a->content;
-	while (stack_a != NULL)
+	temp_stack = stack;
+	min = stack;
+	i = 0;
+	while (temp_stack)
 	{
-		if (stack_a->content < value)
-			value = stack_a->content;
-		stack_a = stack_a->next;
+		if (min->content > temp_stack->content)
+			min = temp_stack;
+		temp_stack = temp_stack->next;
 	}
-	return (value);
+	temp_stack = stack;
+	while (temp_stack != min)
+	{
+		i++;
+		temp_stack = temp_stack->next;
+	}
+	return (i);
+} 
+
+/* checks the position of the smallest value in stack_a by 
+comparing the values of each node. If the position is greater than 2, 
+it rotates the elements of stack_a in reverse direction by a number of times 
+specified by c. If the position is less than or equal to 2, the function 
+rotates the elements of stack_a in the forward direction by c number of times. 
+Finally, the function pushes the smallest value from stack_a to stack_b. */
+
+/* checks if the value of "c" is greater than 2. If it is, then the value of 
+"c" is either set to 5 minus "c" (when n is equal to 1) or 4 minus "c" 
+(when n is not equal to 1). 
+value of "c" in order to correctly rotate the elements in stack_a to get the 
+desired element in the
+first position for push_b.*/
+
+void	check_pos(t_stack **stack_a, t_stack **stack_b, int c, int n)
+{
+	if (c > 2)
+	{
+		if (n == 1)
+			c = 5 - c;
+		else
+			c = 4 - c;
+		while (c != 0)
+		{
+			rever_rotate_a(stack_a);
+			c--;
+		}
+	}
+	else
+	{
+		while (c != 0)
+		{
+			rotate_a(stack_a);
+			c--;
+		}
+	}
+	push_b(stack_a, stack_b);
 }

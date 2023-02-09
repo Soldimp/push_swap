@@ -6,7 +6,7 @@
 /*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 18:37:45 by nuno              #+#    #+#             */
-/*   Updated: 2023/02/08 20:14:42 by nuno             ###   ########.fr       */
+/*   Updated: 2023/02/09 17:58:19 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,53 +43,24 @@ void	sort3(t_stack **stack)
 		swap_a(stack);
 }
 
-static	int smallestValue(t_stack *head) 
-{ 
-    int min = INT_MAX; 
-    while (head != NULL) 
-    { 
-        if (head->content < min) 
-            min = head->content; 
-        head = head->next; 
-    } 
-    return min; 
-} 
-void	sort5(t_stack **stack_a, t_stack **stack_b)
+void	sort4_5(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack *current;
-	t_stack	*next;
-	int		i;
+	t_stack *values_po;
 	int		small;
-
-	small = small_value((*stack_a));
-	current = *stack_a;
-	next = current->next;
-	i = 0;
-	while (i < 3 && *stack_a)
+	int		size;
+	
+	size = ft_lstsize(stack_a);
+	if (size == 5)
 	{
-		small = small_value((*stack_a));
-		current = *stack_a;
-		next = current->next;
-		while (current)
-		{
-			if (current->content == small)
-			{
-				push_b(stack_a, stack_b);
-				i++;
-				break ;
-			}
-			current = next;
-			if (current != NULL)
-				next = current->next;
-		}
+		values_po = *stack_a;
+		small = smallestValues(values_po);
+		check_pos(stack_a, stack_b, small, 1);
 	}
-	//sort3(stack_b);
-	/* if (sorted(stack_a) == 0)
-		swap_a(stack_a);
+	values_po = *stack_a;
+	small = smallestValues(values_po);
+	check_pos(stack_a, stack_b, small, 2);
+	if (sorted(stack_a) == 0)
+		sort3(stack_a);
 	while (*stack_b)
-		push_a(stack_b, stack_a); */
-	ft_printf("Stack A after moves\n");
-	print_list(stack_a);
-	ft_printf("Stack b after moves\n");
-	print_list(stack_b);
+		push_a(stack_b, stack_a); 
 }
