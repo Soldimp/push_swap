@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   beginsorting.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 18:37:45 by nuno              #+#    #+#             */
-/*   Updated: 2023/02/09 17:58:19 by nuno             ###   ########.fr       */
+/*   Updated: 2023/02/13 11:32:41 by nugarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,24 +43,38 @@ void	sort3(t_stack **stack)
 		swap_a(stack);
 }
 
+/* this funcion works for 4 or 5 numbers
+Works by finding the smallest values and sending the 2 smallest values to
+funcion check_pos
+First if is to get the smallest value so i send the stacks and the value
+and also sending that this is the first number so in th funcion check_pos
+i find what position the smallest values are located and perform the correct 
+moves by sending th smallest to the top of stack_a so then
+i send only 2 values to stack_b already in descending order
+and stack_a i just call my sort3 to order it ascending and then i just need to 
+do 2 push_a and stack_a has now all the numbers in order this is for 5 numbers
+for 4 numbers i just send 1 value to check_pos so then i just us my sort3 and 
+the just
+push_a once   */
+
 void	sort4_5(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack *values_po;
+	t_stack	*values_po;
 	int		small;
 	int		size;
-	
+
 	size = ft_lstsize(stack_a);
 	if (size == 5)
 	{
 		values_po = *stack_a;
-		small = smallestValues(values_po);
+		small = smallestvalues(values_po);
 		check_pos(stack_a, stack_b, small, 1);
 	}
 	values_po = *stack_a;
-	small = smallestValues(values_po);
+	small = smallestvalues(values_po);
 	check_pos(stack_a, stack_b, small, 2);
-	if (sorted(stack_a) == 0)
+	if (sorted(stack_a) == FALSE)
 		sort3(stack_a);
 	while (*stack_b)
-		push_a(stack_b, stack_a); 
+		push_a(stack_b, stack_a);
 }

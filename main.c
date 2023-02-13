@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:42:39 by nuno              #+#    #+#             */
-/*   Updated: 2023/02/09 17:52:51 by nuno             ###   ########.fr       */
+/*   Updated: 2023/02/13 15:08:50 by nugarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	how_to_sort(t_stack **stack_a, t_stack **stack_b, int size)
 {
-	if (sorted(stack_a) == 1)
+	if (sorted(stack_a) == TRUE)
 		return ;
 	if (size == 2 && !sorted(stack_a))
 	{
@@ -29,6 +29,11 @@ static void	how_to_sort(t_stack **stack_a, t_stack **stack_b, int size)
 	else if (size == 4 || size == 5 && !sorted(stack_a))
 	{
 		sort4_5(stack_a, stack_b);
+		sorted(stack_a);
+	}
+	else if (size > 5 && !sorted(stack_a))
+	{
+		sort_to_100(stack_a, stack_b);
 		sorted(stack_a);
 	}
 }
@@ -52,7 +57,6 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b)
 	int	size;
 
 	size = ft_lstsize(stack_a);
-	//index_on_stack(stack_a, size + 1);
 	ft_printf("Stack A before moves\n");
 	print_list(stack_a);
 	ft_printf("||||||||Moves|||||||\n");

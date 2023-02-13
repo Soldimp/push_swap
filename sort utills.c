@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort utills.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 18:59:53 by nuno              #+#    #+#             */
-/*   Updated: 2023/02/09 17:40:24 by nuno             ###   ########.fr       */
+/*   Updated: 2023/02/13 11:39:21 by nugarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,40 +25,41 @@ int	biggest_value(t_stack *stack)
 	}
 	return (value);
 }
+
 /* Use the temp_stack to traverse through the linked list 
-stack and compare each node's content with the min node's content. 
-If temp_stack's content is smaller than min's content, update min to point to 
+stack and compare each node's content with the small node's content. 
+If temp_stack's content is smaller than small's content, update small to point to 
 temp_stack.
 After finding the node with the smallest value, initialize temp_stack to 
 stack again and traverse through the linked list using temp_stack until 
-temp_stack reaches min.
+temp_stack reaches small.
 For every node visited in this step, increment the c counter.
 Return the value of c, which is the position of the smallest value in the 
 linked list. */
 
-int smallestValues(t_stack *stack) 
-{ 
-   	t_stack	*temp_stack;
-	t_stack	*min;
+int	smallestvalues(t_stack *stack)
+{
+	t_stack	*temp_stack;
+	t_stack	*small;
 	int		i;
 
 	temp_stack = stack;
-	min = stack;
+	small = stack;
 	i = 0;
 	while (temp_stack)
 	{
-		if (min->content > temp_stack->content)
-			min = temp_stack;
+		if (small->content > temp_stack->content)
+			small = temp_stack;
 		temp_stack = temp_stack->next;
 	}
 	temp_stack = stack;
-	while (temp_stack != min)
+	while (temp_stack != small)
 	{
 		i++;
 		temp_stack = temp_stack->next;
 	}
 	return (i);
-} 
+}
 
 /* checks the position of the smallest value in stack_a by 
 comparing the values of each node. If the position is greater than 2, 
@@ -68,7 +69,7 @@ rotates the elements of stack_a in the forward direction by c number of times.
 Finally, the function pushes the smallest value from stack_a to stack_b. */
 
 /* checks if the value of "c" is greater than 2. If it is, then the value of 
-"c" is either set to 5 minus "c" (when n is equal to 1) or 4 minus "c" 
+"c" is either set to 5 sminus "c" (when n is equal to 1) or 4 minus "c" 
 (when n is not equal to 1). 
 value of "c" in order to correctly rotate the elements in stack_a to get the 
 desired element in the

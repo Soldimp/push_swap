@@ -7,4 +7,4 @@ is the actual data stored at that memory location.
 
 the function swap receives a copy of the pointer stack,
 so any changes made to stack inside the function will not persist outside of the function. On the other hand, when you call swap(*stack), the function receives the actual t_stack structure, so any changes made to the structure 
-will persist outside of the function.
+will persist outside of the function. 

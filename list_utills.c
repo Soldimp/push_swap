@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_utills.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 11:21:07 by nugarcia          #+#    #+#             */
-/*   Updated: 2023/02/08 18:33:39 by nuno             ###   ########.fr       */
+/*   Updated: 2023/02/13 11:00:27 by nugarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	print_list(t_stack **stack)
 	current = *stack;
 	while (current != NULL)
 	{
-		//if (current->content)
 		ft_printf("%d\n", current->content);
 		current = current->next;
 	}
