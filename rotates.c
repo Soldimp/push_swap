@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotates.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
+/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 16:12:32 by nuno              #+#    #+#             */
-/*   Updated: 2023/02/07 13:34:54 by nugarcia         ###   ########.fr       */
+/*   Updated: 2023/02/20 16:56:51 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ static void	rotate(t_stack **stack)
 void	rotate_a(t_stack **stack_a)
 {
 	rotate(stack_a);
-	ft_printf("ra\n");
+	write(1, "ra\n", 3);
 }
 
 void	rotate_b(t_stack **stack_b)
 {
 	rotate(stack_b);
-	ft_printf("rb\n");
+	write(1, "rb\n", 3);
 }
 
 void	rotate_a_b(t_stack **stack_a, t_stack **stack_b)
@@ -55,6 +55,6 @@ void	rotate_a_b(t_stack **stack_a, t_stack **stack_b)
 	{
 		rotate(stack_a);
 		rotate(stack_b);
-		ft_printf("rr\n");
+		write(1, "rr\n", 3);
 	}
 }

@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   beginsorting.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
+/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 18:37:45 by nuno              #+#    #+#             */
-/*   Updated: 2023/02/13 11:32:41 by nugarcia         ###   ########.fr       */
+/*   Updated: 2023/03/06 15:21:05 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "42_print/ft_printf.h"
 
 int	sorted(t_stack **stack)
 {
@@ -24,7 +23,7 @@ int	sorted(t_stack **stack)
 			return (0);
 		tmp = tmp->next;
 	}
-	ft_printf("sorted\n");
+	printf("sorted\n");
 	return (1);
 }
 
@@ -63,7 +62,7 @@ void	sort4_5(t_stack **stack_a, t_stack **stack_b)
 	int		small;
 	int		size;
 
-	size = ft_lstsize(stack_a);
+	size = ft_lstsize(*stack_a);
 	if (size == 5)
 	{
 		values_po = *stack_a;

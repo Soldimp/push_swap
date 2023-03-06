@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
+/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:42:39 by nuno              #+#    #+#             */
-/*   Updated: 2023/02/13 15:08:50 by nugarcia         ###   ########.fr       */
+/*   Updated: 2023/03/06 15:58:49 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,56 +26,42 @@ static void	how_to_sort(t_stack **stack_a, t_stack **stack_b, int size)
 		sort3(stack_a);
 		sorted(stack_a);
 	}
-	else if (size == 4 || size == 5 && !sorted(stack_a))
+	else if (size == 4 || (size == 5 && !sorted(stack_a)))
 	{
 		sort4_5(stack_a, stack_b);
 		sorted(stack_a);
 	}
 	else if (size > 5 && !sorted(stack_a))
 	{
-		sort_to_100(stack_a, stack_b);
-		sorted(stack_a);
+		sort_big(stack_a, stack_b);
 	}
 }
 
-static	void	free_list(t_stack **stack)
+void	sort_big(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	*current;
-	t_stack	*next;
-
-	current = *stack;
-	while (current != NULL)
-	{
-		next = current->next;
-		free(current);
-		current = next;
-	}
+	sort_bigger(stack_a, stack_b);
 }
 
 void	push_swap(t_stack **stack_a, t_stack **stack_b)
 {
 	int	size;
 
-	size = ft_lstsize(stack_a);
-	ft_printf("Stack A before moves\n");
-	print_list(stack_a);
-	ft_printf("||||||||Moves|||||||\n");
+	size = ft_lstsize(*stack_a);
 	how_to_sort (stack_a, stack_b, size);
-	ft_printf("||||||||||||||||||||\n");
-	//print_list(stack_a);
+	//sorted(stack_a);
 	free_list(stack_a);
-	//free_list(stack_b);
+	free_list(stack_b);
 }
 
 int	main(int ac, char **av)
 {
 	t_stack		*stack_a;
 	t_stack		*stack_b;
-
+	
 	if (ac < 2)
 		return (0);
 	if (checkvalid_iput(ac, av) == FALSE)
-		exit(ft_printf("Error\n"));
+		exit(write(2, "Error\n",6));
 	stack_a = fill_stack_values(ac, av);
 	stack_b = NULL;
 	push_swap(&stack_a, &stack_b);

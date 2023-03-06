@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rever_rotate.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
+/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 16:18:08 by nuno              #+#    #+#             */
-/*   Updated: 2023/02/07 13:52:34 by nugarcia         ###   ########.fr       */
+/*   Updated: 2023/02/28 17:18:24 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,18 @@ effectively removing it from the linked list.
 
 static	void	reverse_rotate(t_stack	**stack)
 {
+	if (!(*stack) || !(*stack)->next)
+        return ;
+
+    t_stack *last = *stack;
+    while (last->next->next != NULL)
+        last = last->next;
+
+    t_stack *first = *stack;
+    *stack = last->next;
+    last->next = NULL;
+    (*stack)->next = first;
+	/* 
 	t_stack	*head;
 	t_stack	*last_node;
 	t_stack	*befo_last_node;
@@ -37,19 +49,23 @@ static	void	reverse_rotate(t_stack	**stack)
 	head = *stack;
 	*stack = last_node;
 	(*stack)->next = head;
-	befo_last_node->next = NULL;
+	befo_last_node->next = NULL; */
 }
 
 void	rever_rotate_a(t_stack **stack_a)
 {	
+	if (!(*stack_a) || !(*stack_a)->next)
+        return ;
 	reverse_rotate(stack_a);
-	ft_printf("rra\n");
+	write(1, "rra\n", 4);
 }
 
 void	rever_rotate_b(t_stack **stack_b)
 {	
+	if (!(*stack_b) || !(*stack_b)->next)
+        return ;
 	reverse_rotate(stack_b);
-	ft_printf("rrb\n");
+	write(1, "rrb\n", 4);
 }
 
 void	rever_rotate_a_b(t_stack **stack_a, t_stack **stack_b)
@@ -58,6 +74,6 @@ void	rever_rotate_a_b(t_stack **stack_a, t_stack **stack_b)
 	{
 		rever_rotate_a(stack_a);
 		rever_rotate_b(stack_b);
-		ft_printf("rrr\n");
+		write(1, "rrr\n", 4);
 	}
 }

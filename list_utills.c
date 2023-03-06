@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   list_utills.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
+/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 11:21:07 by nugarcia          #+#    #+#             */
-/*   Updated: 2023/02/13 11:00:27 by nugarcia         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:36:08 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* if (current->content) //check for NULL */
 void	print_list(t_stack **stack)
 {
 	t_stack	*current;
@@ -22,18 +21,18 @@ void	print_list(t_stack **stack)
 	current = *stack;
 	while (current != NULL)
 	{
-		ft_printf("%d\n", current->content);
+		printf("%d\n", current->content);
 		current = current->next;
 	}
 }
 
-int	ft_lstsize(t_stack **stack)
+int	ft_lstsize(t_stack *stack)
 {
 	int			i;
 	t_stack		*lstindex;
 
 	i = 0;
-	lstindex = *stack;
+	lstindex = stack;
 	while (lstindex)
 	{
 		lstindex = lstindex->next;
@@ -42,32 +41,16 @@ int	ft_lstsize(t_stack **stack)
 	return (i);
 }
 
-/* void	index_on_stack(t_stack **stack_a, int size)
+void	free_list(t_stack **stack)
 {
-	t_stack	*head;
-	t_stack	*biggest;
-	int		value;
+	t_stack	*current;
+	t_stack	*next;
 
-	while (--size > 0)
+	current = *stack;
+	while (current != NULL)
 	{
-		head = *stack_a;
-		value = INT_MIN;
-		biggest = NULL;
-		while (head)
-		{
-			if (head->content == INT_MIN && head->index == 0)
-				head->index = 1;
-			if (head->content > value && head->index == 0)
-			{
-				value = head->content;
-				biggest = head;
-				head = *stack_a;
-			}
-			else
-				head = head->next;
-		}
-		if (biggest != NULL)
-			biggest->index = size;
+		next = current->next;
+		free(current);
+		current = next;
 	}
 }
- */

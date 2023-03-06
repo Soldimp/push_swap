@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   listfunc.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
+/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 17:08:52 by nuno              #+#    #+#             */
-/*   Updated: 2023/02/13 11:00:48 by nugarcia         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:51:14 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "42_print/ft_printf.h"
 
 t_stack	*fill_stack_values(int ac, char **av)
 {
@@ -26,7 +25,7 @@ t_stack	*fill_stack_values(int ac, char **av)
 	{
 		nb = ft_atoi2(av[i]);
 		if (nb > INT_MAX || nb < INT_MIN)
-			exit(ft_printf("Error\n"));
+			exit(write(2, "Error\n", 6));
 		if (i == 1)
 			stack_a = stack_new((int)nb);
 		else
@@ -90,7 +89,4 @@ t_stack	*get_node_before_last(t_stack *head)
 		next = next->next;
 	}
 	return (current);
-/* 	while (stack && stack->next && stack->next->next != NULL)
-		stack = stack->next;
-	return (stack); */
 }

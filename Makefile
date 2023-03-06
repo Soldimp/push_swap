@@ -3,25 +3,34 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+         #
+#    By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/14 11:59:09 by nugarcia          #+#    #+#              #
-#    Updated: 2022/11/21 11:11:32 by nugarcia         ###   ########.fr        #
+#    Created: 2023/02/20 15:54:27 by nuno              #+#    #+#              #
+#    Updated: 2023/02/21 17:20:20 by nuno             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libftprintf.a
-SRC = ft_numb ft_printf ft_words\
+NAME	= push_swap
 
-CC = gcc
-RM = rm -f
-CFLAGS = -Wall -Werror -Wextra
+CC		= cc
+CFLAGS	= -Wall -Wextra -Werror -g -fsanitize=address
+RM		= rm -f
 
-all: $(NAME)
-$(NAME) : $(SRC:=.o)
-	ar rc $(NAME) $(SRC:=.o)
+SRCS 	=  ${wildcard *.c}
+
+OBJS	= $(SRCS:c=o)
+
+all: $(NAME) 
+
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
 clean:
-	$(RM) $(SRC:=.o)
+	$(RM)  $(OBJS)
+
 fclean: clean
 	$(RM) $(NAME)
-re: fclean $(NAME)
+
+re:  fclean $(NAME)
+
+.PHONY: all clean fclean re
