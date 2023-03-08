@@ -6,7 +6,7 @@
 /*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 16:18:08 by nuno              #+#    #+#             */
-/*   Updated: 2023/02/28 17:18:24 by nuno             ###   ########.fr       */
+/*   Updated: 2023/03/08 16:56:12 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,6 @@ static	void	reverse_rotate(t_stack	**stack)
     *stack = last->next;
     last->next = NULL;
     (*stack)->next = first;
-	/* 
-	t_stack	*head;
-	t_stack	*last_node;
-	t_stack	*befo_last_node;
-
-	if (*stack == NULL || (*stack)->next == NULL)
-		return ;
-	last_node = get_stack_bottom(*stack);
-	befo_last_node = get_node_before_last(*stack);
-	head = *stack;
-	*stack = last_node;
-	(*stack)->next = head;
-	befo_last_node->next = NULL; */
 }
 
 void	rever_rotate_a(t_stack **stack_a)

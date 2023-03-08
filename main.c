@@ -6,7 +6,7 @@
 /*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:42:39 by nuno              #+#    #+#             */
-/*   Updated: 2023/03/06 15:58:49 by nuno             ###   ########.fr       */
+/*   Updated: 2023/03/08 16:55:10 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b)
 
 	size = ft_lstsize(*stack_a);
 	how_to_sort (stack_a, stack_b, size);
-	//sorted(stack_a);
 	free_list(stack_a);
 	free_list(stack_b);
 }

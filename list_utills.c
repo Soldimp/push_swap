@@ -6,13 +6,13 @@
 /*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 11:21:07 by nugarcia          #+#    #+#             */
-/*   Updated: 2023/02/28 16:36:08 by nuno             ###   ########.fr       */
+/*   Updated: 2023/03/08 16:47:13 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_list(t_stack **stack)
+/* void	print_list(t_stack **stack)
 {
 	t_stack	*current;
 
@@ -24,7 +24,7 @@ void	print_list(t_stack **stack)
 		printf("%d\n", current->content);
 		current = current->next;
 	}
-}
+} */
 
 int	ft_lstsize(t_stack *stack)
 {

@@ -6,7 +6,7 @@
 /*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:24:06 by nugarcia          #+#    #+#             */
-/*   Updated: 2023/03/06 15:49:28 by nuno             ###   ########.fr       */
+/*   Updated: 2023/03/07 16:56:23 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 typedef struct s_list
 {
 	int				content;
-	int				index;
 	struct s_list	*next;
 }	t_stack;
 
@@ -67,7 +66,7 @@ int			smallestvalues(t_stack *stack);
 void		check_pos(t_stack **stack_a, t_stack **stack_b, int c, int n);
 
 ////////		Sorting	Big Utills			////////	
-void	sort_bigger(t_stack **stack_a, t_stack **stack_b);
+void		sort_bigger(t_stack **stack_a, t_stack **stack_b);
 
 ////////		Swaps			////////	
 void		swap_a(t_stack **stack_a);

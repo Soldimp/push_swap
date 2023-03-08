@@ -6,7 +6,7 @@
 /*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 17:08:52 by nuno              #+#    #+#             */
-/*   Updated: 2023/02/28 16:51:14 by nuno             ###   ########.fr       */
+/*   Updated: 2023/03/08 16:55:42 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,21 +72,4 @@ void	ft_lstadd_back(t_stack **stack, t_stack *new)
 	}
 	las_node = get_stack_bottom(*stack);
 	las_node->next = new;
-}
-
-/* Returns the node that is just before the last node of the linked list. */
-
-t_stack	*get_node_before_last(t_stack *head)
-{
-	t_stack	*current;
-	t_stack	*next;
-
-	current = head;
-	next = head->next;
-	while (next->next != NULL)
-	{
-		current = next;
-		next = next->next;
-	}
-	return (current);
 }
