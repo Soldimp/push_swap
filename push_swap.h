@@ -6,7 +6,7 @@
 /*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:24:06 by nugarcia          #+#    #+#             */
-/*   Updated: 2023/03/07 16:56:23 by nuno             ###   ########.fr       */
+/*   Updated: 2023/03/14 17:28:53 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_list
 
 ////////		List creation and print		////////	
 t_stack		*fill_stack_values(int ac, char **av);
-void		print_list(t_stack **stack);
+//void		print_list(t_stack **stack);
 
 ////////		List Funcions		////////	
 t_stack		*get_stack_bottom(t_stack *stack);
@@ -49,6 +49,9 @@ int			dupnub(int ac, char **av);
 
 ////////		Atoi	////////	
 long long	ft_atoi2(const char *str);
+
+////////		Digit   ////////	
+int			ft_isdigit(int c);
 
 ////////		Push_swap stack filling	////////	
 void		push_swap(t_stack **stack_a, t_stack **stack_b);

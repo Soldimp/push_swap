@@ -3,16 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
+/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:45:09 by nuno              #+#    #+#             */
-/*   Updated: 2023/02/07 13:27:13 by nugarcia         ###   ########.fr       */
+/*   Updated: 2023/03/14 17:26:38 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	onlynumbers(int ac, char **av)
+int onlynumbers(int ac, char **av)
+{
+    int i, j;
+
+    for (i = 1; i < ac; i++)
+    {
+        if (av[i][0] == '-') 
+        {
+            if (av[i][1] == '\0' || !ft_isdigit(av[i][1])) 
+                return (FALSE);
+            j = 2;
+        }
+        else
+        {
+            j = 0;
+        }
+        while (av[i][j])
+        {
+            if (!ft_isdigit(av[i][j]))
+                return (FALSE);
+            j++;
+        }
+    }
+    return (TRUE);
+}
+
+/* int	onlynumbers(int ac, char **av)
 {
 	int	i;
 	int	j;
@@ -30,7 +56,7 @@ int	onlynumbers(int ac, char **av)
 		i++;
 	}
 	return (TRUE);
-}
+} */
 
 int	dupnub(int ac, char **av)
 {

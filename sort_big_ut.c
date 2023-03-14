@@ -6,7 +6,7 @@
 /*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:32:30 by nuno              #+#    #+#             */
-/*   Updated: 2023/03/13 18:05:00 by nuno             ###   ########.fr       */
+/*   Updated: 2023/03/14 17:13:07 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,88 +28,6 @@ In this case, the value being shifted is the content of the top element of stack
    int i is the number of bits in each number that needs to be check
    Ex:
    1.
-	stack_a          stack_b
-   -------          -------
-
-      44
-     100
-       2
-     500
-    1000
-      20
-
-
-First pass (i = 0):
-
-   stack_a          stack_b
-   -------          -------
-
-      20              44
-     100              2
-     500             500
-    1000            1000
-
-
-Second pass (i = 1):
-
-   stack_a          stack_b
-   -------          -------
-
-       2              20
-     500             100
-    1000             44
-      20            500
-     100           1000
-
-
-Third pass (i = 2):
-
-   stack_a          stack_b
-   -------          -------
-
-     100              2
-    1000             20
-     500            100
-      20            500
-      44           1000
-
-
-Fourth pass (i = 3):
-
-   stack_a          stack_b
-   -------          -------
-
-     500              2
-      20             20
-      44            100
-    1000            500
-     100           1000
-
-Fifth pass (i = 4):
-
-   stack_a          stack_b
-   -------          -------
-
-      20              2
-      44             20
-     100            100
-     500            500
-    1000           1000
-
-
-Final state:
-
-   stack_a          stack_b
-   -------          -------
-
-       2
-      20
-      44
-     100
-     500
-    1000 
-
-2.
 loop 1:
 i = 0
 j = 0
@@ -354,7 +272,7 @@ void sort_bigger(t_stack **stack_a, t_stack **stack_b)
         while (j < length)
         {
             lsb = (*stack_a)->content >> i;
-            if ((lsb & 1) == 1)
+            if (lsb % 2 == 1)
                 rotate_a(stack_a);
             else
                 push_b(stack_a, stack_b);
