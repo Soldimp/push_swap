@@ -285,4 +285,25 @@ void sort_bigger(t_stack **stack_a, t_stack **stack_b)
     return_to_original(stack_a, subtracted);
 }
 
+i = 0
+    j = 0, lsb = 1 (9 >> 0 = 1001)
+        rotate_a: stack A becomes {0, 9, 1, 6, 5}
+    j = 1, lsb = 1 (1 >> 0 = 0001)
+        rotate_a: stack A becomes {5, 0, 9, 1, 6}
+    j = 2, lsb = 0 (6 >> 0 = 0110)
+        push_b: stack A becomes {5, 0, 9, 1}, stack B becomes {6}
+    j = 3, lsb = 1 (5 >> 0 = 0101)
+        rotate_a: stack A becomes {1, 5, 0, 9}
+    j = 4, lsb = 0 (0 >> 0 = 0000)
+        push_b: stack A becomes {1, 5, 9}, stack B becomes {0}
+
+i = 1
+    j = 0, lsb = 0 (1 >> 1 = 0000)
+        push_b: stack A becomes {5, 9}, stack B becomes {0, 1}
+    j = 1, lsb = 0 (5 >> 1 = 0010)
+        push_b: stack A becomes {9}, stack B becomes {0, 1, 5}
+    j = 2, lsb = 1 (9 >> 1 = 0100)
+        rotate_a: stack A becomes {0, 9}
+    j = 3, lsb = 0 (0 >> 1 = 0000)
+        push_b: stack A becomes {9}, stack B becomes {0}
 
