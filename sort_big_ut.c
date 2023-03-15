@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_big_ut.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:32:30 by nuno              #+#    #+#             */
-/*   Updated: 2023/03/14 17:13:07 by nuno             ###   ########.fr       */
+/*   Updated: 2023/03/15 15:01:39 by nugarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -205,105 +205,87 @@ tack_a: 1 -> 3 -> 5 -> 6 -> 8
 stack_b:
 */
 
-int has_negative_numbers(t_stack *stack) 
+int	has_negative_numbers(t_stack *stack)
 {
-    while (stack) {
-        if (stack->content < 0) {
-            return 1; // list contains negative numbers
-        }
-        stack = stack->next;
-    }
-    return 0; // list does not contain negative numbers
+	while (stack)
+	{
+		if (stack->content < 0)
+			return (1);
+		stack = stack->next;
+	}
+	return (0);
 }
 
-int get_smallest_value(t_stack *stack)
+int	get_smallest_value(t_stack *stack)
 {
-    int smallest = stack->content;
-    while (stack)
-    {
-        if (stack->content < smallest)
-            smallest = stack->content;
-        stack = stack->next;
-    }
-    return smallest;
+	int	smallest;
+
+	smallest = stack->content;
+	while (stack)
+	{
+		if (stack->content < smallest)
+		smallest = stack->content;
+		stack = stack->next;
+	}
+	return (smallest);
 }
 
 
-int make_all_values_positive(t_stack **stack_a)
+int	make_all_values_positive(t_stack **stack_a)
 {
-    int smallest = 0;
-    if (has_negative_numbers(*stack_a))
-    {
-        smallest = get_smallest_value(*stack_a);
-        t_stack *current = *stack_a;
-        while (current)
-        {
-            current->content -= smallest;
-            current = current->next;
-        }
-    }
-    return smallest;
+	int		smallest;
+	t_stack	*current;
+
+	current = *stack_a;
+	smallest = 0;
+	if (has_negative_numbers(*stack_a))
+	{
+		smallest = get_smallest_value(*stack_a);
+		while (current)
+		{
+			current->content -= smallest;
+			current = current->next;
+		}
+	}
+	return (smallest);
 }
 
-void return_to_original(t_stack **stack_a, int subtracted)
+void	return_to_original(t_stack **stack_a, int subtracted)
 {
-    t_stack *current = *stack_a;
-    while (current)
-    {
-        current->content += subtracted;
-        current = current->next;
-    }
+	t_stack	*current;
+
+	current = *stack_a;
+	while (current)
+	{
+		current->content += subtracted;
+		current = current->next;
+	}
 }
 
-void sort_bigger(t_stack **stack_a, t_stack **stack_b)
+void	sort_bigger(t_stack **stack_a, t_stack **stack_b)
 {
-    size_t length;
-    size_t i;
-    size_t j;
-    int lsb;
-    int subtracted;
+	size_t	length;
+	size_t	i;
+	size_t	j;
+	int		subtracted;
 
-    length = ft_lstsize(*stack_a);
-    i = 0;
-    subtracted = make_all_values_positive(stack_a);
-    while (!sorted(stack_a))
-    {
-        j = 0;
-        while (j < length)
-        {
-            lsb = (*stack_a)->content >> i;
-            if (lsb % 2 == 1)
-                rotate_a(stack_a);
-            else
-                push_b(stack_a, stack_b);
-            j++;
-        }
-        while ((*stack_b))
-            push_a(stack_b, stack_a);
-        i++;
-    }
-    return_to_original(stack_a, subtracted);
+	length = ft_lstsize(*stack_a);
+	i = 0;
+	subtracted = make_all_values_positive(stack_a);
+	while (!sorted(stack_a))
+	{
+		j = 0;
+		while (j < length)
+		{
+			if (((*stack_a)->content >> i & 1))
+				rotate_a(stack_a);
+			else
+				push_b(stack_a, stack_b);
+			j++;
+		}
+		while ((*stack_b))
+			push_a(stack_b, stack_a);
+		i++;
+	}
+	return_to_original(stack_a, subtracted);
 }
-
-i = 0
-    j = 0, lsb = 1 (9 >> 0 = 1001)
-        rotate_a: stack A becomes {0, 9, 1, 6, 5}
-    j = 1, lsb = 1 (1 >> 0 = 0001)
-        rotate_a: stack A becomes {5, 0, 9, 1, 6}
-    j = 2, lsb = 0 (6 >> 0 = 0110)
-        push_b: stack A becomes {5, 0, 9, 1}, stack B becomes {6}
-    j = 3, lsb = 1 (5 >> 0 = 0101)
-        rotate_a: stack A becomes {1, 5, 0, 9}
-    j = 4, lsb = 0 (0 >> 0 = 0000)
-        push_b: stack A becomes {1, 5, 9}, stack B becomes {0}
-
-i = 1
-    j = 0, lsb = 0 (1 >> 1 = 0000)
-        push_b: stack A becomes {5, 9}, stack B becomes {0, 1}
-    j = 1, lsb = 0 (5 >> 1 = 0010)
-        push_b: stack A becomes {9}, stack B becomes {0, 1, 5}
-    j = 2, lsb = 1 (9 >> 1 = 0100)
-        rotate_a: stack A becomes {0, 9}
-    j = 3, lsb = 0 (0 >> 1 = 0000)
-        push_b: stack A becomes {9}, stack B becomes {0}
-

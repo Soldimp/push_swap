@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:42:39 by nuno              #+#    #+#             */
-/*   Updated: 2023/03/14 18:46:35 by nuno             ###   ########.fr       */
+/*   Updated: 2023/03/15 13:18:15 by nugarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,11 @@ int	main(int ac, char **av)
 {
 	t_stack		*stack_a;
 	t_stack		*stack_b;
-	
+
 	if (ac < 2)
 		return (0);
 	if (checkvalid_iput(ac, av) == FALSE)
-		exit(write(2, "Error\n",6));
+		exit(write(2, "Error\n", 6));
 	stack_a = fill_stack_values(ac, av);
 	stack_b = NULL;
 	push_swap(&stack_a, &stack_b);

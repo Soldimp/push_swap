@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort utills.c                                      :+:      :+:    :+:   */
+/*   sort_uti.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 18:59:53 by nuno              #+#    #+#             */
-/*   Updated: 2023/02/13 11:39:21 by nugarcia         ###   ########.fr       */
+/*   Updated: 2023/03/15 14:49:48 by nugarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@ int	biggest_value(t_stack *stack)
 	return (value);
 }
 
-/* Use the temp_stack to traverse through the linked list 
+/* Use the temp_stack to traverse through the linked list
 stack and compare each node's content with the small node's content. 
-If temp_stack's content is smaller than small's content, update small to point to 
+If temp_stack's content is smaller than small's content, update small 
+to point to 
 temp_stack.
 After finding the node with the smallest value, initialize temp_stack to 
 stack again and traverse through the linked list using temp_stack until 

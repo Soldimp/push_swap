@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rever_rotate.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 16:18:08 by nuno              #+#    #+#             */
-/*   Updated: 2023/03/08 16:56:12 by nuno             ###   ########.fr       */
+/*   Updated: 2023/03/15 14:49:18 by nugarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,24 @@ effectively removing it from the linked list.
 
 static	void	reverse_rotate(t_stack	**stack)
 {
+	t_stack	*last;
+	t_stack	*first;
+
 	if (!(*stack) || !(*stack)->next)
-        return ;
-
-    t_stack *last = *stack;
-    while (last->next->next != NULL)
-        last = last->next;
-
-    t_stack *first = *stack;
-    *stack = last->next;
-    last->next = NULL;
-    (*stack)->next = first;
+		return ;
+	last = *stack;
+	while (last->next->next != NULL)
+		last = last->next;
+	first = *stack;
+	*stack = last->next;
+	last->next = NULL;
+	(*stack)->next = first;
 }
 
 void	rever_rotate_a(t_stack **stack_a)
 {	
 	if (!(*stack_a) || !(*stack_a)->next)
-        return ;
+		return ;
 	reverse_rotate(stack_a);
 	write(1, "rra\n", 4);
 }
@@ -50,7 +51,7 @@ void	rever_rotate_a(t_stack **stack_a)
 void	rever_rotate_b(t_stack **stack_b)
 {	
 	if (!(*stack_b) || !(*stack_b)->next)
-        return ;
+		return ;
 	reverse_rotate(stack_b);
 	write(1, "rrb\n", 4);
 }
