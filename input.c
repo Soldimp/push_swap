@@ -14,9 +14,10 @@
 
 int onlynumbers(int ac, char **av)
 {
-    int i, j;
+    int i = 1;
+    int j;
 
-    for (i = 1; i < ac; i++)
+    while (i < ac)
     {
         if (av[i][0] == '-') 
         {
@@ -34,9 +35,11 @@ int onlynumbers(int ac, char **av)
                 return (FALSE);
             j++;
         }
+        i++;
     }
     return (TRUE);
 }
+
 
 /* int	onlynumbers(int ac, char **av)
 {
