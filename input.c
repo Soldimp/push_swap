@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
+/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:45:09 by nuno              #+#    #+#             */
-/*   Updated: 2023/03/15 13:21:47 by nugarcia         ###   ########.fr       */
+/*   Updated: 2023/03/16 16:01:44 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 int onlynumbers(int ac, char **av)
 {
-    int i = 1;
+    int i;
     int j;
 
+	i = 1;
     while (i < ac)
     {
         if (av[i][0] == '-') 
@@ -39,27 +40,6 @@ int onlynumbers(int ac, char **av)
     }
     return (TRUE);
 }
-
-
-/* int	onlynumbers(int ac, char **av)
-{
-	int	i;
-	int	j;
-
-	i = 1;
-	while (i < ac)
-	{
-		j = 0;
-		while (av[i][j])
-		{
-			if ((av[i][j] < '0' || av[i][j] > '9') && (av[i][j] != '-'))
-				return (FALSE);
-			j++;
-		}
-		i++;
-	}
-	return (TRUE);
-} */
 
 int	dupnub(int ac, char **av)
 {

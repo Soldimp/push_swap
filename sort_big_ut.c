@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_big_ut.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
+/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:32:30 by nuno              #+#    #+#             */
-/*   Updated: 2023/03/15 15:01:39 by nugarcia         ###   ########.fr       */
+/*   Updated: 2023/03/16 16:03:33 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,136 +19,8 @@ so it starts by checking the lsb(least significant bit)
 and the second operand is the number of bits to shift it to the right. 
 In this case, the value being shifted is the content of the top element of stack_a,
  and the number of bits to shift it to the right is i.
-    44 in binary: 101100, LSB: 0
-    100 in binary: 1100100, LSB: 0
-    2 in binary: 10, LSB: 0
-    500 in binary: 111110100, LSB: 0
-    1000 in binary: 1111101000, LSB: 0
-    20 in binary: 10100, LSB: 0
-   int i is the number of bits in each number that needs to be check
-   Ex:
-   1.
-loop 1:
-i = 0
-j = 0
-
-Number   Binary      Lsb
-44       101100      0
-100      1100100     0
-2        10          0
-500      111110100   0
-1000     1111101000  0
-20       10100       0
-
-Stack A: 44 100 2 500 1000 20
-Stack B: 
-
-loop  2:
-i = 1
-j = 0
-
-Number   Binary      Lsb
-44       10110       0
-100      110010      1
-2        1           0
-500      11111010    1
-1000     111110100   0
-20       1010        0
-
-Stack A: 2 100 44 20 500 1000
-Stack B: 2 100 44 20 500 1000
-
-loop  3:
-i = 2
-j = 0
-
-Number   Binary      Lsb
-2        0           0
-100      11001       1
-44       1011        1
-20       101         1
-500      1111101     0
-1000     11111010    1
-
-Stack A: 2 20 44 100 500 1000
-Stack B: 
-
-loop  4:
-i = 3
-j = 0
-
-Number   Binary      Lsb
-2        0           0
-20       101         1
-44       1011        1
-100      11001       0
-500      1111101     1
-1000     11111010    0
-
-Stack A: 2 20 100 44 500 1000
-Stack B: 
-
-loop  5:
-i = 4
-j = 0
-
-Number   Binary      Lsb
-2        0           0
-20       101         1
-100      11001       0
-44       1011        1
-500      1111101     0
-1000     1111101     0
-
-Stack A: 2 20 100 500 44 1000
-Stack B: 
-
-loop  6:
-i = 5
-j = 0
-
-Number   Binary      Lsb
-2        0           0
-20       101         1
-100      11001       1
-500      111110      1
-44       1011        0
-1000     111110      0
-
-Stack A: 2 20 100 500 44 1000
-Stack B: 
-
-loop  7:
-i = 6
-j = 0
-
-Number   Binary      Lsb
-2        0           0
-20       101         0
-100      1100        1
-500      11111       0
-44       101         0
-1000     11111       0
-
-Stack A: 2 20 44 100 500 1000
-Stack B: 
-
-loop  8:
-i = 7
-j = 0
-
-Number   Binary      Lsb
-2        0           0
-20       10          0
-100      11          1
-500      1111        1
-44       10100       0
-1000     11111       1
-
-Stack A: 2 20 44 100 500 1000
-Stack B:
-3.
-
+Ex:
+1.
 stack_a: 5 -> 3 -> 8 -> 1 -> 6
 stack_b:
 
@@ -277,7 +149,7 @@ void	sort_bigger(t_stack **stack_a, t_stack **stack_b)
 		j = 0;
 		while (j < length)
 		{
-			if (((*stack_a)->content >> i & 1))
+			if (((*stack_a)->content >> i & 1) == 1)
 				rotate_a(stack_a);
 			else
 				push_b(stack_a, stack_b);
