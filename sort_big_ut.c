@@ -6,7 +6,7 @@
 /*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 18:32:30 by nuno              #+#    #+#             */
-/*   Updated: 2023/03/16 16:03:33 by nuno             ###   ########.fr       */
+/*   Updated: 2023/03/26 14:54:39 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,79 +77,21 @@ tack_a: 1 -> 3 -> 5 -> 6 -> 8
 stack_b:
 */
 
-int	has_negative_numbers(t_stack *stack)
-{
-	while (stack)
-	{
-		if (stack->content < 0)
-			return (1);
-		stack = stack->next;
-	}
-	return (0);
-}
-
-int	get_smallest_value(t_stack *stack)
-{
-	int	smallest;
-
-	smallest = stack->content;
-	while (stack)
-	{
-		if (stack->content < smallest)
-		smallest = stack->content;
-		stack = stack->next;
-	}
-	return (smallest);
-}
-
-
-int	make_all_values_positive(t_stack **stack_a)
-{
-	int		smallest;
-	t_stack	*current;
-
-	current = *stack_a;
-	smallest = 0;
-	if (has_negative_numbers(*stack_a))
-	{
-		smallest = get_smallest_value(*stack_a);
-		while (current)
-		{
-			current->content -= smallest;
-			current = current->next;
-		}
-	}
-	return (smallest);
-}
-
-void	return_to_original(t_stack **stack_a, int subtracted)
-{
-	t_stack	*current;
-
-	current = *stack_a;
-	while (current)
-	{
-		current->content += subtracted;
-		current = current->next;
-	}
-}
 
 void	sort_bigger(t_stack **stack_a, t_stack **stack_b)
 {
 	size_t	length;
 	size_t	i;
 	size_t	j;
-	int		subtracted;
 
 	length = ft_lstsize(*stack_a);
 	i = 0;
-	subtracted = make_all_values_positive(stack_a);
 	while (!sorted(stack_a))
 	{
 		j = 0;
 		while (j < length)
 		{
-			if (((*stack_a)->content >> i & 1) == 1)
+			if (((*stack_a)->index >> i & 1) == 1)
 				rotate_a(stack_a);
 			else
 				push_b(stack_a, stack_b);
@@ -159,5 +101,4 @@ void	sort_bigger(t_stack **stack_a, t_stack **stack_b)
 			push_a(stack_b, stack_a);
 		i++;
 	}
-	return_to_original(stack_a, subtracted);
 }

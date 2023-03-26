@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
+/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:24:06 by nugarcia          #+#    #+#             */
-/*   Updated: 2023/03/15 13:17:02 by nugarcia         ###   ########.fr       */
+/*   Updated: 2023/03/26 14:50:32 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 typedef struct s_list
 {
 	int				content;
+	int				index;
 	struct s_list	*next;
 }	t_stack;
 
@@ -39,6 +40,7 @@ void		ft_lstadd_back(t_stack **stack, t_stack *new);
 t_stack		*get_node_before_last(t_stack *head);
 int			ft_lstsize(t_stack *stack);
 void		free_list(t_stack **stack);
+void		index_stack(t_stack **stack);
 
 ////////		Inputs		////////
 int			checkvalid_iput(int ac, char **av);

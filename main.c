@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
+/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:42:39 by nuno              #+#    #+#             */
-/*   Updated: 2023/03/15 13:18:15 by nugarcia         ###   ########.fr       */
+/*   Updated: 2023/03/26 14:57:59 by nuno             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ static void	how_to_sort(t_stack **stack_a, t_stack **stack_b, int size)
 
 void	sort_big(t_stack **stack_a, t_stack **stack_b)
 {
+	index_stack(stack_a);
 	sort_bigger(stack_a, stack_b);
 }
 
