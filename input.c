@@ -3,42 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:45:09 by nuno              #+#    #+#             */
-/*   Updated: 2023/03/16 16:01:44 by nuno             ###   ########.fr       */
+/*   Updated: 2023/03/28 12:43:56 by nugarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int onlynumbers(int ac, char **av)
+int	onlynumbers(int ac, char **av)
 {
-    int i;
-    int j;
+	int	i;
+	int	j;
 
 	i = 1;
-    while (i < ac)
-    {
-        if (av[i][0] == '-') 
-        {
-            if (av[i][1] == '\0' || !ft_isdigit(av[i][1])) 
-                return (FALSE);
-            j = 2;
-        }
-        else
-        {
-            j = 0;
-        }
-        while (av[i][j])
-        {
-            if (!ft_isdigit(av[i][j]))
-                return (FALSE);
-            j++;
-        }
-        i++;
-    }
-    return (TRUE);
+	while (i < ac)
+	{
+		if (av[i][0] == '-')
+		{
+			if (av[i][1] == '\0' || !ft_isdigit(av[i][1]))
+				return (FALSE);
+			j = 2;
+		}
+		else
+		{
+			j = 0;
+		}
+		while (av[i][j])
+		{
+			if (!ft_isdigit(av[i][j]))
+				return (FALSE);
+			j++;
+		}
+		i++;
+	}
+	return (TRUE);
 }
 
 int	dupnub(int ac, char **av)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_utills.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 11:21:07 by nugarcia          #+#    #+#             */
-/*   Updated: 2023/03/26 15:04:21 by nuno             ###   ########.fr       */
+/*   Updated: 2023/03/28 12:36:15 by nugarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,8 @@ static t_stack	*get_next_min(t_stack **stack)
 	{
 		while (head)
 		{
-			if ((head->index == -1) && (!has_min || head->content < min->content))
+			if ((head->index == -1) && (!has_min || \
+			head->content < min->content))
 			{
 				min = head;
 				has_min = 1;

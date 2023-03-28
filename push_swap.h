@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nuno <nuno@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: nugarcia < nugarcia@student.42lisboa.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 11:24:06 by nugarcia          #+#    #+#             */
-/*   Updated: 2023/03/26 14:50:32 by nuno             ###   ########.fr       */
+/*   Updated: 2023/03/28 12:36:34 by nugarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ int			sorted(t_stack **stack);
 void		sort3(t_stack **stack_a);
 void		sort4_5(t_stack **stack_a, t_stack **stack_b);
 void		sort_big(t_stack **stack_a, t_stack **stack_b);
-
 
 ////////		Sorting	Utills			////////	
 int			biggest_value(t_stack *stack);
